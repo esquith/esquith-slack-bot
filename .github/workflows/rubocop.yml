@@ -6,11 +6,6 @@
 # pulled from repo
 name: "Rubocop"
 
-AllCops:
-  Excludes:
-    - db/schema.rb
-  SuggestExtensions: false
-
 on:
   push:
     branches: [ "main" ]
@@ -55,3 +50,11 @@ jobs:
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: rubocop.sarif
+
+    # Rubocop configuration
+    - name: Configure Rubocop
+      run: |
+        echo "AllCops:" >> .rubocop.yml
+        echo "  Exclude:" >> .rubocop.yml
+        echo "    - db/schema.rb" >> .rubocop.yml
+        echo "  SuggestExtensions: false" >> .rubocop.yml
