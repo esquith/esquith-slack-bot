@@ -2,7 +2,7 @@
 
 class IncidentsController < ApplicationController
   def index
-    @incidents = Incident.all
+    @incidents = Incident.paginate(page: params[:page], per_page: 10)
   end
 
   def show
