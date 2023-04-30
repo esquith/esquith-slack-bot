@@ -5,6 +5,14 @@ class IncidentsController < ApplicationController
     @incidents = Incident.all
   end
 
+  def show
+    @incident = Incident.find(params[:id])
+
+    render json: @incident
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Incident not found' }, status: :not_found
+  end
+
   def create
     @incident = Incident.new(incident_params)
 
