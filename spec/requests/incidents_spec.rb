@@ -17,4 +17,16 @@ RSpec.describe 'Incidents', type: :request do
       expect(response).to render_template('index')
     end
   end
+
+  describe 'PUT #update' do
+    context 'with valid attributes' do
+      it 'updates the incident' do
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not update the incident' do
+      end
+    end
+  end
 end

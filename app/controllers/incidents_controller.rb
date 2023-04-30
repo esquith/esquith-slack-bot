@@ -15,6 +15,18 @@ class IncidentsController < ApplicationController
     end
   end
 
+  def update
+    @incident = Incident.find(params[:id])
+
+    if @incident.update(incident_params)
+      flash[:success] = 'The Incident has been updated successfully'
+      redirect_to @incident
+    else
+      flash.now[:error] = 'There was an error while attempting to update the incident'
+      render :edit
+    end
+  end
+
   private
 
   def incident_params
