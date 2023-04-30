@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :incident do
     title { 'Example Incident' }
     description { 'This is an example incident.' }
-    status { 'new' }
+    severity { 'high' }
   end
 end
