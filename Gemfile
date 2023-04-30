@@ -26,6 +26,7 @@ group :development do
   gem 'annotate'
   gem 'faker'
   gem 'web-console'
+  gem 'rubocop', '~> 1.50'
 end
 
 group :test do
@@ -33,5 +34,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'rubocop', '~> 1.50'
