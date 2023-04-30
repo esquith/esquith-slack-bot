@@ -1,0 +1,18 @@
+<h1>Incidents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @incidents.each do |incident| %>
+      <tr>
+        <td><%= incident.title %></td>
+        <td><%= incident.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
