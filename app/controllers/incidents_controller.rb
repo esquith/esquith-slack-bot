@@ -8,7 +8,10 @@ class IncidentsController < ApplicationController
   def show
     @incident = Incident.find(params[:id])
 
-    render json: @incident
+    respond_to do |format|
+      format.html
+      format.json { render json: @incident }
+    end
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Incident not found' }, status: :not_found
   end

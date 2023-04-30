@@ -18,6 +18,25 @@ RSpec.describe 'Incidents', type: :request do
     end
   end
 
+  describe 'GET #show' do
+    it 'returns http success if the requested incident is found' do
+      incident = create(:incident)
+
+      get "/incidents/#{incident.id}"
+
+      expect(response).to have_http_status(:success)
+      expect(assigns(:incident)).to eq(incident)
+    end
+
+    it 'renders the show template' do
+      incident = create(:incident)
+
+      get "/incidents/#{incident.id}"
+
+      expect(response).to render_template(:show)
+    end
+  end
+
   describe 'PUT #update' do
     context 'with valid attributes' do
       it 'updates the incident' do
