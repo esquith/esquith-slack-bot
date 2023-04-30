@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :incidents, only: [:index, :create]
+  resources :incidents, only: %i[index create]
 end
