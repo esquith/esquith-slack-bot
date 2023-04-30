@@ -21,15 +21,14 @@ gem 'will_paginate', '~> 3.3'
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'rails-controller-testing', '~> 1.0'
   gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
   gem 'annotate'
   gem 'faker'
-  gem 'rubocop', '~> 1.33'
-  gem 'rubocop-rails', '~> 2.19'
-  gem 'rubocop-rspec', '~> 2.20'
+  gem 'rubocop', '>= 0.82.0', '<= 1.50.0'
   gem 'web-console'
 end
 
@@ -38,5 +37,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'rails-controller-testing', '~> 1.0'
