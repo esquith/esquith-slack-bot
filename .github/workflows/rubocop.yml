@@ -6,6 +6,10 @@
 # pulled from repo
 name: "Rubocop"
 
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
 on:
   push:
     branches: [ "main" ]
