@@ -26,7 +26,7 @@ end
 group :development do
   gem 'annotate'
   gem 'faker'
-  gem 'rubocop', '~> 1.50'
+  gem 'rubocop', '~> 1.33'
   gem 'rubocop-rails', '~> 2.19'
   gem 'rubocop-rspec', '~> 2.20'
   gem 'web-console'
