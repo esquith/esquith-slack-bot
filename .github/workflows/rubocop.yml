@@ -54,3 +54,4 @@ jobs:
 AllCops:
   Excludes:
     - db/schema.rb
+  SuggestExtensions: false
