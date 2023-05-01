@@ -4,19 +4,26 @@ class SlackController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:declare, :resolve]
 
   def declare
-    incident = Incident.create(title: params[:text])
-
-    render json: { response_type: 'in_channel', text: "New incident declared: #{incident.title}" }
+    if params[:challenge]
+      render json: { challenge: params[:challenge] }
+    else
+      incident = Incident.create(title: params[:text])
+      render json: { response_type: 'in_channel', text: "New incident declared: #{incident.title}" }
+    end
   end
 
   def resolve
-    incident = Incident.last
-    incident.update(resolved: true)
-    return unless incident.present?
+    if params[:challenge]
+      render json: { challenge: params[:challenge] }
+    else
+      incident = Incident.last
+      incident.update(resolved: true)
+      return unless incident.present?
 
-    render json: {
-      response_type: 'in_channel',
-      text: "Incident resolved: #{incident.title}"
-    }
+      render json: {
+        response_type: 'in_channel',
+        text: "Incident resolved: #{incident.title}"
+      }
+    end
   end
 end
