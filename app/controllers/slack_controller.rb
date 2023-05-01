@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SlackController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:declare, :resolve]
+
   def declare
     incident = Incident.create(title: params[:text])
 
